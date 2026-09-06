@@ -1,10 +1,10 @@
-# ACI Data Collab CoP - Pandemic-related disruptions in health services and data. Tracing causes and effects.
-Health data from March 2020 onwards bear the traces of the COVID-19 pandemic. What happened and how should we deal with it in our studies?
+# Send in the clones
+A journal club presentation on
 
-A 20-minute talk covering antibiotics, antidepressants, population estimates and epidemiological methods.
+Cars T, Gustafsson S, Chan Q, Dhalwani N, Kent ST, Briggs A, et al. Methodological Challenges of Emulating a Target Trial to Assess Effectiveness of Timing of PCSK9 Inhibitor Treatment Initiation Post Myocardial Infarction.
+Pharmacoepidemiology and Drug Safety. 2026;35(4):e70354. doi:[10.1002/pds.70354](https://doi.org/10.1002/pds.70354)
 
-Delivered to the Agency for Clinical Innovation Data Collab Community of Practice
-meeting on 27 April 2023.
+Delivered to the VAC4EU journal club on 18 September 2026
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 
