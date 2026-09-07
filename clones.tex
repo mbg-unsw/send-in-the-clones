@@ -1,4 +1,4 @@
-% Send in the clones - Journal club Cars (2026) doi:10.1002/pds.70354
+% Send in the clones? - Journal club Cars (2026) doi:10.1002/pds.70354
 % (c) 2026 Malcolm Gillies <malcolm.gillies@unsw.edu.au>
 % https://github.com/mbg-unsw/send-in-the-clones
 %
@@ -23,8 +23,9 @@
 \usepackage{tikz}
 \usetikzlibrary{shadows}
 \usepackage{tikzpagenodes}
-\usepackage{natbib}
+\usepackage[round]{natbib}
 \usepackage{gitinfo2}
+\usepackage{booktabs}
 
 \pgfplotsset{compat=1.17}
 \hypersetup{pdfencoding=auto}
@@ -36,9 +37,9 @@
 %\setbeamertemplate{navigation symbols}{} % remove navigation symbols
 %\setbeamercolor*{item}{fg=darkred}
 
-\title{Send in the clones}
+\title{Send in the clones? Challenges in emulating a trial of PCSK9 inhibitor treatment}
 \author{Malcolm Gillies <malcolm.gillies@unsw.edu.au>}
-\institute{18 September 2026}
+\institute{VAC4EU Journal Club\\18 September 2026}
 \usebackgroundtemplate{%
 \includegraphics[width=\paperwidth]{ref/micre-blank.PNG}
 \begin{tikzpicture}[remember picture,overlay]
@@ -104,12 +105,18 @@
   \end{frame}
 }
 
-{
-\usebackgroundtemplate{%
-\includegraphics[width=\paperwidth]{ref/micre-partners.pdf}}
-\begin{frame}{}
+%{
+%\usebackgroundtemplate{%
+%\includegraphics[width=\paperwidth]{ref/micre-partners.pdf}}
+%\begin{frame}{}
+%\end{frame}
+%}
+
+\begin{frame}{A bit about me}
+	\begin{itemize}
+		\item XXXX
+	\end{itemize}
 \end{frame}
-}
 
 \begin{frame}{Outline}
 	\begin{itemize}
@@ -139,7 +146,101 @@
 \end{columns}
 \end{frame}
 
+\begin{frame}{The problem: assess effectiveness of a new drug}
+	\begin{itemize}
+		\item XXXX
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{The challenge: do it with observational data}
+	\begin{itemize}
+		\item XXXX
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{The target trial}
+	\begin{itemize}
+		\item XXXX
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Clone-censor-weight 1}
+	\centering
+\includegraphics[height=0.8\textheight]{ref/clone-censor.pdf}
+\flushright{\tiny{\citet{gaber_2024}}}
+\end{frame}
+
+\begin{frame}{Clone-censor-weight 2}
+	\centering
+\includegraphics[height=0.8\textheight]{ref/weight.pdf}
+\flushright{\tiny{\citet{gaber_2024}}}
+\end{frame}
+
+\begin{frame}{WARNING! This is not the outcome paper...}
+	\begin{itemize}
+		\item XXXX
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{A negative control approach}
+	\begin{itemize}
+		\item XXXX
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Adjustment variables}
+	\begin{itemize}
+		\item XXXX
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Weighting woes}
+	\begin{itemize}
+		\item XXXX
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Results: Standardised mean differences}
+	\centering
+\includegraphics[height=0.85\textheight]{ref/cars-smd.png}
+\end{frame}
+
+\begin{frame}{Results: Weighted Kaplan--Meier curve}
+	\centering
+\includegraphics[height=0.85\textheight]{ref/pds70354-fig-0002f.png}
+\end{frame}
+
+\begin{frame}{Results: Bias-variance tradeoff (fracture)}
+	\centering
+	\begin{tabular}{lccc}
+		\toprule
+		Truncation & HR & ESS (treated) & SMD >0.1 \\
+		\midrule
+		95th & 1.01 & 479 & 14 \\
+		99th & 1.08 & 413 & 15 \\
+		99.9th & 0.96 & 186 & 10 \\
+		None & 0.99 & 127 & 11 \\
+		\bottomrule
+	\end{tabular}
+\end{frame}
+
 \begin{frame}{Summary}
+	\begin{itemize}
+		\item XXXX
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Another example, this one with outcomes}
+	\centering
+\includegraphics[height=0.5\textheight]{ref/stephan-forest-crop.pdf}
+	\begin{itemize}
+		\item Spironolactone vs no treatment, heart failure population
+		\item Six-month grace period
+	\end{itemize}
+\flushright{\tiny{\citet{stephan_2026}}}
+\end{frame}
+
+\begin{frame}{Where to from here?}
 	\begin{itemize}
 		\item XXXX
 	\end{itemize}
