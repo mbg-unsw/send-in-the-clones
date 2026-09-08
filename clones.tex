@@ -95,11 +95,19 @@
 
 \begin{document}
 
-\setbeamercolor{page number in head/foot}{fg=white}
+%\setbeamercolor{page number in head/foot}{fg=white}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ref/micre.PNG}}
+%\setbeamercolor{title page}{fg=white}
+%  \begin{frame}[plain]
+%    \titlepage
+%  \end{frame}
+%}
 
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ref/micre.PNG}}
-\setbeamercolor{title page}{fg=white}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth,trim=0cm 0cm 0cm 5.8cm,clip]{ref/247834228_b62f7a9f65_o.jpg}}
+%\setbeamercolor{title page}{fg=white}
   \begin{frame}[plain]
     \titlepage
   \end{frame}
@@ -114,13 +122,21 @@
 
 \begin{frame}{A bit about me}
 	\begin{itemize}
-		\item XXXX
+		\item University of New South Wales, Sydney
+		\item Biostatistician and pharmacoepidemiologist
+		\item Collaborating with Sabrina on \{wtdr\}
+		\item Interest in causal inference methods
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Outline}
 	\begin{itemize}
-		\item XXXX
+		\item The problem
+		\item Target trial specification
+		\item Clone--censor--weight overview
+		\item Negative controls
+		\item Results
+		\item Discussion
 	\end{itemize}
 \end{frame}
 
@@ -146,21 +162,43 @@
 \end{columns}
 \end{frame}
 
-\begin{frame}{The problem: assess effectiveness of a new drug}
+\begin{frame}{Comparative effectiveness using observational data\dots}
 	\begin{itemize}
-		\item XXXX
+		\item Non-randomised treatment decisions \rightarrow { }bias
+		\item Untreated comparator: when is time zero?
+		\item Time-varying treatment \rightarrow { }time-varying confounding
+		\item Intention to treat? Per protocol?
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{The challenge: do it with observational data}
+\begin{frame}{\dots is hard to do right}
+%	\centering
+\begin{tikzpicture}
+  \node[drop shadow={shadow xshift=.8ex,shadow yshift=-.8ex},fill=white,draw] at (0,0) {\includegraphics[height=0.3\textheight]{ref/blais-1.png}};
+\end{tikzpicture}
+\flushright{\begin{tikzpicture}
+  \node[drop shadow={shadow xshift=.8ex,shadow yshift=-.8ex},fill=white,inner sep=0pt,draw] at (0,0) {\includegraphics[height=0.3\textheight]{ref/blais-2.png}};
+\end{tikzpicture}}
+\flushright{\tiny{\citet{blais_2025}}}
+\end{frame}
+	
+\begin{frame}{One solution: rigorously emulating a grace period}
 	\begin{itemize}
-		\item XXXX
+		\item Follow \emph{everyone} from time zero
+		\item Use the clone--censor--weight method
+		\item Inverse probability of censoring weights maintain
+			conditional exchangeability
 	\end{itemize}
 \end{frame}
+
 
 \begin{frame}{The target trial}
 	\begin{itemize}
-		\item XXXX
+		\item Index date: hospital discharge after MI
+		\item Previously treated with a statin
+		\item Treatment: Initiate PCSK9i within 12 months
+		\item Control: Everyone who didn't
+		\item Intention to treat (?!), three years follow up
 	\end{itemize}
 \end{frame}
 
@@ -176,27 +214,56 @@
 \flushright{\tiny{\citet{gaber_2024}}}
 \end{frame}
 
-\begin{frame}{WARNING! This is not the outcome paper...}
-	\begin{itemize}
-		\item XXXX
-	\end{itemize}
+\begin{frame}[c]{WARNING!}
+\centering
+No ``real'' outcomes in this paper
 \end{frame}
 
-\begin{frame}{A negative control approach}
+\begin{frame}{Negative control outcomes (NCO)}
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
 	\begin{itemize}
-		\item XXXX
+		\item Bone fractures
+		\item Hip and/or knee arthroplasty
+		\item Kidney stones
 	\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+	\begin{itemize}
+		\item Glaucoma
+		\item Non-melanoma skin cancer
+		\item Other cancers
+	\end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
 
-\begin{frame}{Adjustment variables}
+\begin{frame}{Adjustment variables (IPCW)}
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
 	\begin{itemize}
-		\item XXXX
+		\item Age and sex (b)
+		\item Comorbidities (b)
+		\item MI and stroke (v)
+		\item Statin treatment (v)
 	\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+	\begin{itemize}
+		\item Ezetimibe treatment (v)
+		\item LDL-C level (v)
+		\item Residency (v)
+		\item Calendar period (v)
+	\end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Weighting woes}
 	\begin{itemize}
-		\item XXXX
+		\item Maximum weight 817
+		\item Weights capped at 99.9th \%ile (214)
+		\item Choose between bias and precision
 	\end{itemize}
 \end{frame}
 
@@ -206,8 +273,15 @@
 \end{frame}
 
 \begin{frame}{Results: Weighted Kaplan--Meier curve}
-	\centering
+\begin{columns}
+\begin{column}{0.75\textwidth}
+\centering
 \includegraphics[height=0.85\textheight]{ref/pds70354-fig-0002f.png}
+\end{column}
+\begin{column}{0.25\textwidth}
+HR 0.62 \\ 95\% CI 0.38--1.01
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Results: Bias-variance tradeoff (fracture)}
@@ -226,7 +300,10 @@
 
 \begin{frame}{Summary}
 	\begin{itemize}
-		\item XXXX
+		\item Strongly imbalanced groups
+		\item Implausible effects on negative controls
+		\item Similar imbalance with landmark analysis + PS
+		\item Problems inherent to newly introduced treatment
 	\end{itemize}
 \end{frame}
 
@@ -242,15 +319,31 @@
 
 \begin{frame}{Where to from here?}
 	\begin{itemize}
-		\item XXXX
+		\item Confounding by indication is hard to fix
+		\item Clone--censor--weight isn't magic
+		\item Negative controls are a useful tool
+		\item ACNU 4 eva?
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Thanks}
+\begin{frame}{Thank you}
     \begin{itemize}
-        \item XXXX
+        \item Sabrina
     \end{itemize}
 \end{frame}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth,trim=0cm 0cm 0cm 0cm,clip]{ref/Nottingham-Dollies-grazing-high-res-768x432.jpg}}
+  \begin{frame}{Thanks}
+	\begin{minipage}[t][0.8\textheight]{\textwidth}
+	    \begin{itemize}
+		\item XXXX
+	    \end{itemize}
+	\end{minipage}
+	\vfill
+	\flushright{Dolly\dagger, 5 Jul 1996--14 Feb 2003}
+\end{frame}
+}
 
 \begin{frame}{References}
 %        \bibliographystyle{apalike}
